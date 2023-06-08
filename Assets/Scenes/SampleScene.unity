@@ -3637,7 +3637,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1506790831235387649}
-  - component: {fileID: 4518690947029899252}
   - component: {fileID: 4518690947029899253}
   - component: {fileID: 4518690947029899254}
   m_Layer: 0
@@ -3677,33 +3676,6 @@ Transform:
   m_Father: {fileID: 1992925006}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -43.078, y: -110.764, z: 14.518}
---- !u!114 &4518690947029899252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3250805018539383331}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffbc401e9f751ee6fbf1f156218017b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_playerMovementInterface:
-    mode: 0
-    unityReference: {fileID: 1922515611691583394}
-    rawReference:
-      rid: -2
-  m_playerAttackInterface:
-    mode: 0
-    unityReference: {fileID: 9132712643473829405}
-    rawReference:
-      rid: -2
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
 --- !u!114 &4518690947029899253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3802,7 +3774,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4585419686305317771}
   - component: {fileID: 1922515611691583394}
-  - component: {fileID: 9132712643473829405}
   - component: {fileID: 9132712643473829407}
   - component: {fileID: 9132712643473829406}
   m_Layer: 0
@@ -3826,21 +3797,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_playerAnimator: {fileID: 188998865}
   m_swordAnimator: {fileID: 4744105411057836587}
---- !u!114 &9132712643473829405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4858770820681207163}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcb0d5bfc03b2582d86e37f6725c7a93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_playerController: {fileID: 0}
-  weaponSpawner: {fileID: 0}
-  weaponSpawnedObject: {fileID: 0}
 --- !u!114 &9132712643473829406
 MonoBehaviour:
   m_ObjectHideFlags: 0
