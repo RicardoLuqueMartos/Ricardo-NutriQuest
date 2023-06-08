@@ -71,7 +71,7 @@ public class ProjectileController : MonoBehaviour
             }
             else if (moveSystem == MoveSystemEnum.ByTranslate)
             {
-                transform.Translate(Vector3.up * (Time.deltaTime * moveSpeed));
+                transform.Translate(Vector3.up * (Time.fixedDeltaTime * moveSpeed));
             }
         }
 
