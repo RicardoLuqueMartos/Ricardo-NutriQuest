@@ -28,7 +28,7 @@ public class InputManager : MonoBehaviour
     void UpdateAttack()
     {
         bool attackInput = Input.GetButtonDown("Fire1");
-        if (attackInput)
+        if (attackInput && playerController._equipWeapon != null && playerController._equipWeapon.GetSpawnedObject() != null)
         {
             playerController._equipWeapon.GetSpawnedObject().GetComponent<WeaponBehaviour>().Fire(playerController);
         }

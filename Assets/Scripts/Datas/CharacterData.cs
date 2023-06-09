@@ -37,9 +37,9 @@ public class CharacterData : ScriptableObject
         int maxWeaponsAmount = 2;
         public int _maxWeaponsAmount { get { return maxWeaponsAmount; } }
 
-        [SerializeField]
+    /*    [SerializeField]
         List<WeaponData> weaponsList;
-        public List<WeaponData> _weaponsList { get { return weaponsList; } }
+        public List<WeaponData> _weaponsList { get { return weaponsList; } }*/
     }
     [SerializeField]
     protected WeaponsData weapons = new WeaponsData();

@@ -9,6 +9,9 @@ public class EquipWeapon : MonoBehaviour, IEquipWeapon
     PlayerController m_playerController;
 
     [SerializeField]
+    InventoryManager m_inventoryManager;
+
+    [SerializeField]
     GameObject weaponSpawner;
 
     [SerializeField]
@@ -23,39 +26,59 @@ public class EquipWeapon : MonoBehaviour, IEquipWeapon
 
     private void OnEnable()
     {
-        SpawnActualWeapon(0);
+        if (m_inventoryManager._weaponsList.Count > 0)
+            SpawnActualWeapon(FindActualWeapon(0));
+    } 
+
+    public WeaponData FindActualWeapon(int index)
+    {
+        return m_inventoryManager._weaponsList[index];    
     }
 
-    #region Weapon & fire
+    public void EquipNextWeapon()
+    {
+        int index = m_inventoryManager._weaponsList.IndexOf(m_equipedweapon);
+
+        if (index < m_inventoryManager._weaponsList.Count-1)
+        {
+            index++;
+        }
+        else index = 0;
+
+        EquipingWeapon(m_inventoryManager._weaponsList[index]);
+    }
+
+    public void EquipPreviousWeapon()
+    {
+        int index = m_inventoryManager._weaponsList.IndexOf(m_equipedweapon);
+
+        if (index > 0)
+        {
+            index--;
+        }
+        else if (m_inventoryManager._weaponsList.Count > 0) index = m_inventoryManager._weaponsList.Count-1;
+
+        EquipingWeapon(m_inventoryManager._weaponsList[index]);
+    }
+
+    public void EquipingWeapon(WeaponData weapon)
+    {       
+        RemoveActualWeapon();
+        SpawnActualWeapon(weapon);
+    }
+
     public void RemoveActualWeapon()
     {
         if (weaponSpawnedObject != null)
             Destroy(weaponSpawnedObject);
     }
 
-    public void SpawnActualWeapon(int index)
+    public void SpawnActualWeapon(WeaponData weapon)
     {
-        m_equipedweapon = m_playerController._playerData._weapons._weaponsList[index];
-
-        weaponSpawnedObject = (GameObject)Instantiate(m_playerController._playerData._weapons._weaponsList[index]._weaponPrefab,
+        weaponSpawnedObject = (GameObject)Instantiate(weapon._weaponPrefab,
             weaponSpawner.transform.position, weaponSpawner.transform.rotation, weaponSpawner.transform);
         weaponSpawnedObject.GetComponent<WeaponBehaviour>().ByPlayer(m_playerController);
         weaponSpawnedObject.GetComponent<WeaponBehaviour>().Unlock();
         weaponSpawnedObject.GetComponent<WeaponBehaviour>().OnEnable();
     }
-
-    public void EquipNextWeapon()
-    {
-        int index = m_playerController._playerData._weapons._weaponsList.IndexOf(m_equipedweapon);
-
-        if (index < m_playerController._playerData._weapons._weaponsList.Count-1)
-        {
-            index++;
-        }
-        else index = 0;
-
-        RemoveActualWeapon();
-        SpawnActualWeapon(index);
-    }
-    #endregion Weapon & fire
 }

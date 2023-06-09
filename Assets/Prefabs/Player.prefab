@@ -2181,6 +2181,7 @@ GameObject:
   - component: {fileID: 2389308730778224565}
   - component: {fileID: 2389308730778224566}
   - component: {fileID: 8721205945869768730}
+  - component: {fileID: 3123087157791872490}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -2270,6 +2271,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_playerAnimator: {fileID: 2278006501752239249}
   m_swordAnimator: {fileID: 0}
+--- !u!114 &3123087157791872490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3638969147538524771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 029bd0bc39249bb41b0f7bc1052bb0e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_equipWeaponInterface:
+    mode: 0
+    unityReference: {fileID: 6998861118529797727}
+    rawReference:
+      rid: -2
+  m_weaponsList: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &6697073138985311547
 GameObject:
   m_ObjectHideFlags: 0
@@ -2282,6 +2306,8 @@ GameObject:
   - component: {fileID: 374712580435744738}
   - component: {fileID: 6998861118529797727}
   - component: {fileID: 6998861118529797726}
+  - component: {fileID: 5123020492384459761}
+  - component: {fileID: 4129765866943578538}
   m_Layer: 0
   m_Name: Mechanics
   m_TagString: Untagged
@@ -2318,7 +2344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rigidbody: {fileID: 2278006502845785793}
   m_speed: 5
-  m_playerAnimations: {fileID: 0}
+  m_playerAnimations: {fileID: 8721205945869768730}
 --- !u!114 &6998861118529797727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2332,6 +2358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerController: {fileID: 2389308730778224565}
+  m_inventoryManager: {fileID: 3123087157791872490}
   weaponSpawner: {fileID: 2278006502986725787}
   weaponSpawnedObject: {fileID: 0}
   m_equipedweapon: {fileID: 0}
@@ -2351,3 +2378,30 @@ MonoBehaviour:
   weaponData: {fileID: 11400000, guid: a569526919bc74a44b85e825ccf321ef, type: 2}
   Locked: 1
   ProjectileSpawnersList: []
+--- !u!114 &5123020492384459761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6697073138985311547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baddc5165331cd64aad2696d696f298a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_pickMeUp: {fileID: 0}
+--- !u!136 &4129765866943578538
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6697073138985311547}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
