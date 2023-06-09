@@ -8,10 +8,7 @@ public abstract class CharacterController : MonoBehaviour
 {
     #region Variables
     [Header("== Character Controller ==")]
-/*    [SerializeField] private SerializableInterface<IAttackWeapon> m_playerAttackWeaponInterface;
-    private IAttackWeapon m_playerAttackWeapon => m_playerAttackWeaponInterface.Value;
-    public IAttackWeapon _playerAttackWeapon { get { return m_playerAttackWeapon; } }
-    */
+
     [SerializeField] private SerializableInterface<IEquipWeapon> m_equipWeaponInterface;
     private IEquipWeapon m_equipWeapon => m_equipWeaponInterface.Value;
     public IEquipWeapon _equipWeapon { get { return m_equipWeapon; } }
@@ -99,8 +96,6 @@ public abstract class CharacterController : MonoBehaviour
                     && playerController.transform != transform)
                 {
                     // TODO invoke event
-
-                //    TurretDestroyed?.Invoke();
 
                 }
                 DestroySelf();
