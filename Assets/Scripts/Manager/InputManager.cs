@@ -20,5 +20,12 @@ public class InputManager : MonoBehaviour
     }
 
     #endregion Variables
-      
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            Application.Quit();
+        }
+    }
 }
