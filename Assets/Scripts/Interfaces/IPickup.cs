@@ -1,7 +1,7 @@
 using UnityEngine;
 
-public interface IPickup
+public interface IPickup : IAction
 {
     void OnTriggerEnter(Collider other);
-    void Pickup();
+
 }

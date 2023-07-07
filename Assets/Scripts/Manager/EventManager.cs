@@ -6,14 +6,11 @@ public class EventManager
 {
     public enum Events
     {
-        None,
-        OnBeatChange,
-        OnNoteHit,
+        None,       
         OnWin,
         ItemSpawn,
         EnnemySpawn,
         BiggerEnnemy,
-        EndSong,
         LaunchWave,
         Boss,
         OnGoldWin,
@@ -21,7 +18,6 @@ public class EventManager
         OnCombo10,
         OnResetCombo,
         OnPlayerDeath,
-        OnStartSong,
         ExplodeAll
     }
     private Dictionary<Events, Action> eventDictionnary;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickMeUp : MonoBehaviour, IPickable
+public class PickUpItem : MonoBehaviour, IPickable
 {
     #region Variables
     
@@ -13,7 +13,10 @@ public class PickMeUp : MonoBehaviour, IPickable
 
 
     #endregion Variables
-
+    public void PickMeUp(InventoryManager inventoryManager)
+    {
+        inventoryManager.AddAweapon(_pickupData._itemToPickup as WeaponData);
+    }
     public void PickupDone()
     {
         if (m_pickupData._destroyIfPick) DestroyPickup();

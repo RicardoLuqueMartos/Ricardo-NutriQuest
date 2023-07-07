@@ -60,19 +60,13 @@ public class GameHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.StartListening(EventManager.Events.OnNoteHit, IncreaseGold);
         EventManager.StartListening(EventManager.Events.OnWin, Win);
-        EventManager.StartListening(EventManager.Events.EndSong, EndSong);
         EventManager.StartListening(EventManager.Events.OnPlayerDeath, GameOver);
-        EventManager.StartListening(EventManager.Events.OnStartSong, StartSong);
     }
     private void OnDisable()
     {
-        EventManager.StopListening(EventManager.Events.OnNoteHit, IncreaseGold);
-        EventManager.StopListening(EventManager.Events.EndSong, EndSong);
         EventManager.StopListening(EventManager.Events.OnWin, Win);
         EventManager.StopListening(EventManager.Events.OnPlayerDeath, GameOver);
-        EventManager.StopListening(EventManager.Events.OnStartSong, StartSong);
     }
 
 
@@ -116,17 +110,7 @@ public class GameHandler : MonoBehaviour
         SceneManager.LoadScene(_winSceneName);
         Destroy(gameObject);
     }
-    private void LoadShop()
-    {
-        IsShopLevel = true;
-        IsGameOn = false;
-        SceneManager.LoadScene(_shopSceneName);
-    }
-    public void EndSong()
-    {
-        LoadShop();
-    }
-    public void ReturnMainScreen()
+     public void ReturnMainScreen()
     {
         IsGameOver = false;
         IsStartScreen = true;

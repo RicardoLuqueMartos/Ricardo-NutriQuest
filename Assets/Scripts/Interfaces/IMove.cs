@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public interface IMove
+public interface IMove : IAction
 {
-    void Move(Vector2 input);
+   
+
 }

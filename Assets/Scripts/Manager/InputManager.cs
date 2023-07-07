@@ -8,35 +8,17 @@ public class InputManager : MonoBehaviour
     [SerializeField]
     PlayerController playerController;
 
+    public enum InputsEnum
+    {
+        None,
+        Horizontal,
+        Vertical,
+        Fire1,
+        Fire2,
+        space,
+        mouseScroll
+    }
+
     #endregion Variables
-
-    void Update()
-    {
-        UpdateMove();
-
-        UpdateAttack();
-    }
-
-    void UpdateMove()
-    {
-        // Move input
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-        playerController._playerMovement.Move(new Vector2(horizontalInput, verticalInput));
-    }
-
-    void UpdateAttack()
-    {
-        bool attackInput = Input.GetButtonDown("Fire1");
-        if (attackInput && playerController._equipWeapon != null && playerController._equipWeapon.GetSpawnedObject() != null)
-        {
-            playerController._equipWeapon.GetSpawnedObject().GetComponent<WeaponBehaviour>().Fire(playerController);
-        }
-
-        bool switchWeaponInput = Input.GetButtonDown("Fire2");
-        if (switchWeaponInput)
-        {
-            playerController._equipWeapon.EquipNextWeapon();
-        }
-    }
+      
 }

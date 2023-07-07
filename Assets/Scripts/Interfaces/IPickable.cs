@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IPickable
 {
+    void PickMeUp(InventoryManager inventoryManager);
     void PickupDone();
     void DestroyPickup();
 }

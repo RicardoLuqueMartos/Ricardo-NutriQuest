@@ -46,5 +46,4 @@ public class WeaponData : ItemData
 
     #endregion Variables
 
-
 }

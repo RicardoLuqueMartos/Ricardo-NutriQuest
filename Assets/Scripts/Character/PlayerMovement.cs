@@ -3,25 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Moves the player character
-public class PlayerMovement : MonoBehaviour, IMove
+public class PlayerMovement : Move
 {
-    [SerializeField] private Rigidbody m_rigidbody;
-    [SerializeField] private float m_speed = 5f;
+    [SerializeField]
+    PlayerController m_playerController;
 
-    [SerializeField] AnimationsController m_playerAnimations;
+    [SerializeField]
+    InputManager.InputsEnum m_horizontalInput = InputManager.InputsEnum.Horizontal;
+    public InputManager.InputsEnum _horizontalInput { get { return m_horizontalInput; } }
 
-    public void Move(Vector2 input)
+    [SerializeField]
+    InputManager.InputsEnum m_verticalInput = InputManager.InputsEnum.Vertical;
+    public InputManager.InputsEnum _verticalInput { get { return m_verticalInput; } }
+
+    public void Update()
     {
-        // Move the player
-        Vector3 direction = new Vector3(input.x, 0, input.y);
-        m_rigidbody.velocity = direction * m_speed + m_rigidbody.velocity.y * Vector3.up;
+        Move();
+    }
 
-        m_playerAnimations.Move(direction.magnitude);
-
-        // Rotate the player
-        if (direction != Vector3.zero)
-        {
-            m_rigidbody.rotation = Quaternion.LookRotation(direction);
-        }
+    public void Move()
+    {
+        horizontalInput = UnityEngine.Input.GetAxis(_horizontalInput.ToString());
+    //    verticalInput = UnityEngine.Input.GetAxis(_verticalInput.ToString());
+               
+        VerifyAction();
     }
 }

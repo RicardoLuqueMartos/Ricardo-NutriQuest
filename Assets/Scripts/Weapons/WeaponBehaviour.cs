@@ -8,6 +8,9 @@ public class WeaponBehaviour : MonoBehaviour, IAttackWeapon
     #region Variables
 
     [SerializeField]
+    InputManager.InputsEnum FireInput = InputManager.InputsEnum.Fire1; 
+
+    [SerializeField]
     CharacterController characterController;
 
     [SerializeField]
@@ -43,13 +46,22 @@ public class WeaponBehaviour : MonoBehaviour, IAttackWeapon
     // Update is called once per frame
     void Update()
     {
-    
+        UpdateAttack();
+    }
+
+    void UpdateAttack()
+    {
+        bool attackInput = Input.GetButtonDown(FireInput.ToString());
+        if (attackInput && characterController._equipWeapon != null && characterController._equipWeapon.GetSpawnedObject() != null)
+        {
+            Fire(characterController);
+        }
     }
 
     public void Fire(CharacterController _characterController)
     {
         characterController = _characterController;
-        Debug.Log("ALLO");
+
         if (Locked == false)
         {
             Lock();
@@ -73,7 +85,6 @@ public class WeaponBehaviour : MonoBehaviour, IAttackWeapon
 
     private void fireProjectile()
     {
-        Debug.Log("Fire");
         for (int i = 0; i < ProjectileSpawnersList.Count; i++)
         {
             Debug.Log(i);
@@ -83,7 +94,6 @@ public class WeaponBehaviour : MonoBehaviour, IAttackWeapon
     }
     private IEnumerator fireProjectile2()
     {
-        Debug.Log("Fire2");
         for (int i = 0; i < ProjectileSpawnersList.Count; i++)
         {
             InstantiateBulletPrefab(ProjectileSpawnersList[i]);
